@@ -57,6 +57,7 @@ body {
 }
 #address-bar {
     width: 4rem;
+    text-align: center;
 }
 #formula-bar {
     width: calc(100vw - 4rem - 0.7rem - 0.7rem - 0.7rem);
@@ -97,19 +98,60 @@ body {
 }
 .grid-cont {
     height: calc( 100vh - 3rem - 3rem - 3rem - 2rem );
+    position: relative;
+    overflow: scroll;
+    background-color: #ecf0f1;
 }
 
 #top-left-dummy-box {
     height: 2rem;
     width: 2rem;
     background-color: #747d8c;
+    position: fixed;
+    z-index: 5;
 }
 #address-col-cont {
-
+    position: sticky;
+    top: 2rem;
+    left: 0;
 }
 #address-row-cont {
-
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 2rem;
 }
 #cells-cont {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
 
+.address-col {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dfe4ea;
+}
+
+.address-row {
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dfe4ea;
+}
+
+.row-cont {
+    display: flex;
+}
+
+.cell {
+    height: 2rem;
+    width: 5rem;
+    border: 1px solid #dfe4ea;
+    outline: none;
 }
