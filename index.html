@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
-    <title>Sheets</title>
+    <title>Sheets</title> 
 </head>
 <body>
     <div class="page-actions-cont">
@@ -58,13 +58,26 @@
             format_align_right
         </span>
     </div>
-    <div class="formula-actions-cont"></div>
-    <div class="grid-cont">This is grid section</div>
+    <div class="formula-actions-cont">
+        <input type="text" readonly class="address-bar" id="address-bar">
+        <img id="formula-icon" width="50" height="50" src="https://img.icons8.com/ios-filled/50/formula-fx.png" alt="formula-fx"/>
+        <input type="text" class="formula-bar" id="formula-bar">
+    </div>
+    <div class="grid-cont">
+        <div class="top-left-dummy" id="top-left-dummy-box"></div>
+        <div class="address-col-cont" id="address-col-cont"></div>
+        <div class="address-row-cont" id="address-row-cont"></div>
+        <div class="cells-cont" id="cells-cont"></div>
+    </div>
     <div class="sheets-cont", id="sheets">
-        <span class="material-icons">
-            post_add
-        </span>
-        <div>This is sheets section</div>
+        <div class="sheet-add-icon", id="sheet-add-icon">
+            <span class="material-icons">
+                post_add
+            </span>
+        </div>
+        <div class="sheets-folder-cont", id="sheets-folder">
+            <div class="sheet-folder", id="sheet-box">Sheet-1</div>
+        </div>
     </div>
 
     <script src="./script.js"></script>
