@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
-    <title>Sheets</title> 
+    <title>Sheets(1:33:57)</title> 
 </head>
 <body>
     <div class="page-actions-cont">
@@ -39,24 +39,36 @@
             <option value="18">18</option>
             <option value="20">20</option>
         </select>
-        <span class="material-icons">
+        <span class="material-icons bold" id="bold">
             format_bold
         </span>
-        <span class="material-icons">
+        <span class="material-icons italic">
             format_italic
         </span>
-        <span class="material-icons">
+        <span class="material-icons underline">
             format_underlined
         </span>
-        <span class="material-icons">
+        <span class="left material-icons alignment">
             format_align_left
         </span>
-        <span class="material-icons">
+        <span class="center material-icons alignment">
             format_align_center
         </span>
-        <span class="material-icons">
+        <span class="right material-icons alignment">
             format_align_right
         </span>
+        <div class="color-prop">
+            <span class="material-icons">
+                format_color_text
+            </span>
+            <input type="color" class="font-color-prop">
+        </div>
+        <div class="color-prop">
+            <span class="material-icons">
+                format_color_fill
+            </span>
+            <input type="color" class="BGcolor-prop">
+        </div>
     </div>
     <div class="formula-actions-cont">
         <input type="text" readonly class="address-bar" id="address-bar">
@@ -81,6 +93,7 @@
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="./grid.js"></script>
+    <script src="./cell-properties.js"></script>
 </body>
 </html>
