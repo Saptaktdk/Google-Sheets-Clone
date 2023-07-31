@@ -1,4 +1,4 @@
-//? Store the value of each cell in it's cellprop
+// TODO: Store the value of each cell in it's cellprop
 for (let i=0; i<rows; i++) {
     for (let j=0; j<cols; j++) {
         let cell = document.querySelector(`.cell[rid="${i}"][cid="${j}"]`);
@@ -22,12 +22,13 @@ for (let i=0; i<rows; i++) {
     }
 }
 
+// TODO: Enter the evaluated formula to the selected cell 
 let formulaBar = document.querySelector(".formula-bar");
 formulaBar.addEventListener("keydown", async (e)=> {
     let inputFormula = formulaBar.value;
     if (e.key === "Enter" && inputFormula) {
 
-        //? If chnage in formula, break old P-C relation, evaluate the new formula, and add the 
+        //? If change in formula, break old P-C relation, evaluate the new formula, and add the 
         //? new P-C to it
         let address = addressBar.value;
         let [cell, cellProp] = getCellAndCellProp(address);
@@ -57,6 +58,7 @@ formulaBar.addEventListener("keydown", async (e)=> {
     }
 })
 
+// TODO: Add child to graph component
 function addChildToGraphComponent(formula, childAddress) {
     let [crid, ccid] = decodeRIdCIDFromAddress(childAddress);
     let encodedFormula = formula.split(" ");
@@ -71,6 +73,7 @@ function addChildToGraphComponent(formula, childAddress) {
     }
 }
 
+// TODO: Remove chhild from graph component
 function removeChildFromGraphComponent(formula, childAddress) {
     let [crid, ccid] = decodeRIdCIDFromAddress(childAddress);
     let encodedFormula = formula.split(" ");
@@ -83,6 +86,7 @@ function removeChildFromGraphComponent(formula, childAddress) {
     }
 }
 
+// TODO: Update children cells
 function updateChildrenCells(parentAddress) {
     let [parentCell, parentCellProp] = getCellAndCellProp(parentAddress);
     let children = parentCellProp.children;
@@ -100,6 +104,7 @@ function updateChildrenCells(parentAddress) {
     }
 }
 
+// TODO: Add child to it's parent
 function addChildToParent(formula) {
     let childAddress = addressBar.value;
     let encodedFormula = formula.split(" ");
@@ -112,6 +117,7 @@ function addChildToParent(formula) {
     }
 }
 
+// TODO: Remove child from parent
 function removeChildFromParent(formula) {
     let childAddress = addressBar.value;
     let encodedFormula = formula.split(" ");
@@ -125,6 +131,7 @@ function removeChildFromParent(formula) {
     }
 }
 
+// TODO: Evaluate the formula in the formula bar 
 function evaluateFormula (formula) {
     let encodedFormula = formula.split(" ");
     for (let i=0; i<encodedFormula.length; i++) {
@@ -138,6 +145,7 @@ function evaluateFormula (formula) {
     return eval(decodedFormula);
 }
 
+// TODO: Set the cell and it's properties ( formula )
 function setCellUIAndCellProp (evaluatedValue, formula, address) {
     let [cell, cellProp] = getCellAndCellProp(address);
 

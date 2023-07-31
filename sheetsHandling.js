@@ -1,5 +1,7 @@
 let sheetsFolderCont = document.querySelector(".sheets-folder-cont");
 let addSheetBtn = document.querySelector(".sheet-add-icon");
+
+// TODO: Click on add-sheet button to add a new sheet
 addSheetBtn.addEventListener("click", (e) => {
     let sheet = document.createElement("div");
     sheet.setAttribute("class", "sheet-folder");
@@ -10,6 +12,7 @@ addSheetBtn.addEventListener("click", (e) => {
     sheet.innerHTML =  `<div class="sheet-content">Sheet ${allSheetFolders.length + 1}</div>`;
 
     sheetsFolderCont.appendChild(sheet);
+    sheet.scrollIntoView();
 
     //? DB
     createSheetDB();
@@ -20,6 +23,7 @@ addSheetBtn.addEventListener("click", (e) => {
 
 })
 
+// TODO: Create a pop up to remove sheets on right click
 function handleSheetRemoval(sheet) {
     sheet.addEventListener("mousedown", (e) => {
         //? Right click
@@ -51,6 +55,7 @@ function handleSheetRemoval(sheet) {
     })
 }
 
+// TODO: Remove selected sheet from UI 
 function handleSheetUIRemoval(sheet) {
     //? UI
     sheet.remove();
@@ -65,11 +70,23 @@ function handleSheetUIRemoval(sheet) {
     allSheetFolders[0].style.backgroundColor = "#ced6e0";
 }
 
+// TODO: 
+function handleSheetActiveness(sheet) {
+    sheet.addEventListener("click", (e)=> {
+        let sheetIdx = Number(sheet.getAttribute("id"));
+        handleSheetDB(sheetIdx);
+        handleSheetProperties();
+        handleSheetUI(sheet);
+    })
+}
+
+// TODO: 
 function handleSheetDB(sheetIdx) {
     sheetDB = collectedSheetDB[sheetIdx];
     graphComponentMatrix = collectedGraphComponent[sheetIdx];
 }
 
+// TODO: 
 function handleSheetProperties() {
     for (let i=0; i< rows; i++) {
         for (let j=0; j< cols; j++) {
@@ -82,6 +99,7 @@ function handleSheetProperties() {
     firstCell.click();
 }
 
+// TODO: 
 function handleSheetUI(sheet) {
     let allSheetFolders = document.querySelectorAll(".sheet-folder");
     for (let i=0; i<allSheetFolders.length; i++) {
@@ -90,15 +108,7 @@ function handleSheetUI(sheet) {
     sheet.style.backgroundColor = "#ced6e0";
 }
 
-function handleSheetActiveness(sheet) {
-    sheet.addEventListener("click", (e)=> {
-        let sheetIdx = Number(sheet.getAttribute("id"));
-        handleSheetDB(sheetIdx);
-        handleSheetProperties();
-        handleSheetUI(sheet);
-    })
-}
-
+// TODO: Create a sheet database for a new sheet
 function createSheetDB() {
     let sheetDB = [];
 
@@ -125,6 +135,7 @@ function createSheetDB() {
     collectedSheetDB.push(sheetDB);
 }
 
+// TODO: Create graph component matrix
 function createGraphComponentMatrix() {
     let graphComponentMatrix = [];
 

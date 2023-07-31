@@ -7,28 +7,6 @@ let sheetDB = [];
     addSheetBtn.click();
 }
 
-// for (let i = 0; i<rows; i++) {
-//     let sheetRow = [];
-//     for (let j=0; j<cols; j++) {
-//         let cellProp = {
-//             bold: false,
-//             italic: false,
-//             underline: false,
-//             alignments: "left",
-//             fontFamily: "monospace",
-//             fontSize: '14',
-//             fontColor: "#000000",
-//             BGcolor: "", //? just for indication purpose 
-//             value: "",
-//             formula: "",
-//             children: []           
-//         }
-//         sheetRow.push(cellProp);
-//     }
-//     sheetDB.push(sheetRow);
-// }
-
-
 //? Selectors for cell properties
 let bold = document.querySelector(".bold");
 let italic = document.querySelector(".italic");
@@ -46,8 +24,9 @@ let rightAlign = alignment[2];
 let activeColorProp = "#d1d8d0";
 let inactiveColorProp = "#ecf0f1";
 
-//? Application of 2-way binding
-//? Attach property listeners
+//! Application of 2-way binding: attach property listeners
+
+// TODO: Bold implementation
 bold.addEventListener("click", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -58,6 +37,7 @@ bold.addEventListener("click", (e) => {
     bold.style.backgroundColor = cellProp.bold? activeColorProp : inactiveColorProp; //? UI change (2) 
 })
 
+// TODO: Italic implementation
 italic.addEventListener("click", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -68,6 +48,7 @@ italic.addEventListener("click", (e) => {
     italic.style.backgroundColor = cellProp.italic? activeColorProp : inactiveColorProp; //? UI change (2) 
 })
 
+// TODO: Underline implementation
 underline.addEventListener("click", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -78,6 +59,7 @@ underline.addEventListener("click", (e) => {
     underline.style.backgroundColor = cellProp.underline? activeColorProp : inactiveColorProp; //? UI change (2) 
 })
 
+// TODO: FontSize implementation 
 fontSize.addEventListener("change", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -88,6 +70,7 @@ fontSize.addEventListener("change", (e) => {
     fontSize.value = cellProp.fontSize;
 })
 
+// TODO: FontFamily implementation
 fontFamily.addEventListener("change", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -98,6 +81,7 @@ fontFamily.addEventListener("change", (e) => {
     fontFamily.value = cellProp.fontFamily;
 })
 
+// TODO: FontColor implementation
 fontColor.addEventListener("change", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -108,6 +92,7 @@ fontColor.addEventListener("change", (e) => {
     fontColor.value = cellProp.fontColor;
 })
 
+// TODO: Background color implementation
 BGcolor.addEventListener("change", (e) => {
     let address = addressBar.value;
     let [cell, cellProp] = getCellAndCellProp(address);
@@ -152,8 +137,8 @@ for (let i=0; i< allCells.length; i++) {
     addListenerToAttachCellProperties(allCells[i]);
 }
 
+//TODO: Attach cell properties to the cell
 function addListenerToAttachCellProperties(cell) {
-    //TODO: Add event listeners to all the cell properties
     cell.addEventListener("click", (e)=> {
         let address = addressBar.value;
         let [rid, cid] = decodeRIdCIDFromAddress(address);
@@ -201,6 +186,7 @@ function addListenerToAttachCellProperties(cell) {
     })  
 }
 
+// TODO: Access a cell and it's properties using it's address bar value
 function getCellAndCellProp(address) {
     let [rid, cid] = decodeRIdCIDFromAddress(address);
     //? Access cell & storage object
@@ -209,6 +195,7 @@ function getCellAndCellProp(address) {
     return [cell, cellProp];
 }
 
+// TODO: Extract row ID and column ID for a cell
 function decodeRIdCIDFromAddress(address) {
     //? address -> "A1"
     let rid = Number(address.slice(1) - 1); //? "1" -> 0

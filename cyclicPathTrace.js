@@ -1,4 +1,4 @@
-//? For color delay and wait
+// TODO: Color delay and wait
 function colorPromise() {
     return new Promise((resolve, reject) => {
         setTimeout(()=> {
@@ -7,6 +7,7 @@ function colorPromise() {
     })
 }
 
+// TODO: Trace cyclic path for a given set of formulas
 async function isGraphCyclicTracePath(graphComponentMatrix, cycleResponse) {
     let [srcr, srcc] = cycleResponse;
     let visited = []; //? Node visit trace
@@ -29,7 +30,7 @@ async function isGraphCyclicTracePath(graphComponentMatrix, cycleResponse) {
     return Promise.resolve(false);
 }
 
-//! Coloring cells for tracking
+// TODO: Color the  cells for tracking the cyclic path
 async function dfsCycleDetectionTracePath(graphComponentMatrix, srcr, srcc, visited, dfsVisited) {
     visited[srcr][srcc] = true;
     dfsVisited[srcr][srcc] = true;

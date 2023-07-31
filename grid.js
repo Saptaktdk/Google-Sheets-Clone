@@ -6,7 +6,7 @@ let addressRowCont = document.querySelector(".address-row-cont");
 let cellsCont = document.querySelector(".cells-cont");
 let addressBar = document.querySelector(".address-bar");
 
-//? Create divs for address column
+// TODO: Create divs for address column
 for (let i=0; i<rows; i++) {
     let addressCol = document.createElement("div");
     addressCol.setAttribute("class", "address-col");
@@ -14,7 +14,7 @@ for (let i=0; i<rows; i++) {
     addressColCont.appendChild(addressCol);
 }
 
-//? Create divs for alphabet columns
+// TODO: Create divs for alphabet columns
 for (let i=0; i< cols; i++) {
     let addressRow = document.createElement("div");
     addressRow.setAttribute("class", "address-row");
@@ -22,7 +22,7 @@ for (let i=0; i< cols; i++) {
     addressRowCont.appendChild(addressRow);
 }
 
-//? Create cells for a particular row
+// TODO: Create cells for a particular row
 for (let i=0; i< rows; i++) {
     let rowCont = document.createElement("div");
     rowCont.setAttribute("class", "row-cont");
@@ -42,6 +42,7 @@ for (let i=0; i< rows; i++) {
     cellsCont.appendChild(rowCont);
 }
 
+// TODO: Display cell name in the address bar
 function addListenerForAddressBarDisplay(cell, i, j) {
     cell.addEventListener("click", (e) => {
         let rowID = i+1;

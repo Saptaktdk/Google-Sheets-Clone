@@ -2,16 +2,8 @@
 let collectedGraphComponent = [];
 let graphComponentMatrix = [];
 
-// for (let i=0; i<rows; i++) {
-//     let row = [];
-//     for (let j=0; j<cols; j++) {
-//         //?Why array -> More then 1 child relation (dependency)
-//         row.push([]);
-//     }
-//     graphComponentMatrix.push(row);
-// }
 
-//? True -> cycle, False -> no cyle
+// TODO: Validate if a graph is cyclic or not
 function isGraphCyclic(graphComponentMatrix) {
     //? Dependency -> visited, dfsVisited
     let visited = []; //? Node visit trace
@@ -47,6 +39,8 @@ function isGraphCyclic(graphComponentMatrix) {
 //? If vis[i][j] -> already explored path, so go back, no use to explore again
 //? Cycle detection condition -> if (vis[i][j] == true && dfsVisited[i][j] == true) -> cycle
 //? Return true/false
+
+// TODO: Detect cycle using DFS Algorithm
 function dfsCycleDetection(graphComponentMatrix, srcr, srcc, visited, dfsVisited) {
     visited[srcr][srcc] = true;
     dfsVisited[srcr][srcc] = true;
