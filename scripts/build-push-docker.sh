@@ -3,6 +3,8 @@
 GCLOUD_SERVICE_IMAGE_NAME=$1
 GCLOUD_TMP_JSON_PATH="/tmp/gcloud-api-key.json"
 
+echo "TAG_NAME=$TAG_NAME"
+
 #? Decode the service account JSON from github secrets
 gcloud_decode_service_account (){
     echo $GCLOUD_ENCODED_API_KEY | base64 -d > $GCLOUD_TMP_JSON_PATH
