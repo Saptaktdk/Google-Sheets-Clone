@@ -32,6 +32,7 @@ gcloud_push_docker_artifact(){
     docker push $GCR_IMAGE_NAME:$TAG_NAME
 }
 
+gcloud_decode_service_account
 gcloud_docker_login
 gcloud_set_image_tag
 gcloud_docker_build
