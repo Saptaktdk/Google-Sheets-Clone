@@ -17,7 +17,7 @@ jobs:
             - name: Build and push Docker artifact registry
               run: |
                 export BUILD_NUMBER=${{github.run_number}}
-                export GCLOUD_ENCODED_SERVICE_ACCOUNT_JSON=${{ secrets.GCLOUD_ENCODED_INFRA_CICD_API_KEY }}
+                export GCLOUD_ENCODED_API_KEY=${{ secrets.GCLOUD_ENCODED_INFRA_CICD_API_KEY }}
                 export GCLOUD_DOCKER_REPO_HOST_NAME=${{ secrets.GCLOUD_DOCKER_REPO_HOSTNAME }}
                 export GCLOUD_PROJECT_ID=${{ secrets.GCLOUD_INFRA_CICD_PROJECT_ID }}
                 export GCLOUD_DOCKER_REPO_NAME=${{ secrets.GCLOUD_DOCKER_REPO_NAME }}
