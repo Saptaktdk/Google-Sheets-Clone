@@ -23,4 +23,5 @@ jobs:
                 export GCLOUD_DOCKER_REPO_NAME=${{ secrets.GCLOUD_DOCKER_REPO_NAME }}
                 export SERVICE_IMAGE_NAME=google-sheets
                 export TAG_NAME=1.0.$BUILD_NUMBER
+                export GCLOUD_DOCKER_REGISTRY_HOSTNAME=${{ secrets.GCLOUD_DOCKER_REGISTRY_HOSTNAME }}
                 bash scripts/build-push-docker.sh $SERVER_IMAGE_NAME 
