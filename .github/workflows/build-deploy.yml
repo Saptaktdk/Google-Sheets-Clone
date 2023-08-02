@@ -24,3 +24,24 @@ jobs:
                 export SERVICE_IMAGE_NAME=google-sheets
                 export TAG_NAME=1.0.$BUILD_NUMBER
                 bash scripts/build-push-docker.sh $SERVICE_IMAGE_NAME 
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        permissions:
+            contents: read
+            packages: write
+        
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Install gcloud CLI
+              run: |
+                bash scripts/install-gcloud-cli.sh
+                
+            - name: Gcloud authentication
+              run: |
+                export GCLOUD_ENCODED_API_KEY=${{ secrets.GCLOUD_ENCODED_DEV_API_KEY }}
+                export GCLOUD_PROJECT_SERVICE_ACCOUNT_ID=${{  secrets.GCLOUD_DEV_SERVICE_ACCOUNT_ID }}
+                export GCLOUD_PROJECT_ID=${{ secrets.GCLOUD_DEV_PROJECT_ID }}
+                bash scripts/gcloud-auth-login.sh
