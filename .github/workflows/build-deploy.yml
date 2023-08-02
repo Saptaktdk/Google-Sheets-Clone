@@ -40,13 +40,8 @@ jobs:
                 bash scripts/install-gcloud-cli.sh
                 
             - name: Gcloud authentication
-              env: 
-                GCLOUD_ENCODED_API_KEY: ${{ secrets.GCLOUD_ENCODED_DEV_API_KEY }}
-                GCLOUD_PROJECT_SERVICE_ACCOUNT_ID: ${{  secrets.GCLOUD_DEV_SERVICE_ACCOUNT_ID }}
-                GCLOUD_PROJECT_ID: ${{ secrets.GCLOUD_DEV_PROJECT_ID }} 
-
               run: |
-                #export GCLOUD_ENCODED_API_KEY=${{ env.GCLOUD_ENCODED_DEV_API_KEY }}
-                #export GCLOUD_PROJECT_SERVICE_ACCOUNT_ID=${{  env.GCLOUD_DEV_SERVICE_ACCOUNT_ID }}
-                #export GCLOUD_PROJECT_ID=${{ env.GCLOUD_DEV_PROJECT_ID }}
+                export GCLOUD_ENCODED_API_KEY=${{ secrets.GCLOUD_ENCODED_DEV_API_KEY }}
+                export GCLOUD_PROJECT_SERVICE_ACCOUNT_ID=${{  secrets.GCLOUD_DEV_SERVICE_ACCOUNT_ID }}
+                export GCLOUD_PROJECT_ID=${{ secrets.GCLOUD_DEV_PROJECT_ID }}
                 bash scripts/gcloud-auth-login.sh
