@@ -1,19 +1,6 @@
 #!/bin/bash
 
-GCLOUD_DOCKER_REGISTRY_HOSTNAME=us-central1-docker.pkg.dev
-GCLOUD_DOCKER_REPO_NAME=my-docker-repo
-SERVICE_IMAGE_NAME=google-sheets
-GCLOUD_PROJECT_SERVICE_ACCOUNT_ID=cloud-run-deploy@first-project-394615.iam.gserviceaccount.com
-GCLOUD_PROJECT_ID=first-project-394615
-GCLOUD_TMP_JSON_PATH="../credentials/cloud-run.json"
-TAG_NAME=1.0.8
-SERVICE_NAME=google-sheets
-SERVICE_ACCOUNT="661903042002-compute@developer.gserviceaccount.com"
-
-#? Run gcloud auth
-gcloud info --run-diagnostics
-gcloud auth activate-service-account $GCLOUD_PROJECT_SERVICE_ACCOUNT_ID --key-file $GCLOUD_TMP_JSON_PATH
-gcloud config set project $GCLOUD_PROJECT_ID
+GCLOUD_TMP_JSON_PATH="/tmp/gcloud-api-key.json"
 
 GCR_IMAGE_REPO_URL=$GCLOUD_DOCKER_REGISTRY_HOSTNAME/$GCLOUD_PROJECT_ID/$GCLOUD_DOCKER_REPO_NAME
 GCR_IMAGE_NAME=$GCR_IMAGE_REPO_URL/$SERVICE_IMAGE_NAME

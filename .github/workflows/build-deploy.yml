@@ -45,3 +45,17 @@ jobs:
                 export GCLOUD_PROJECT_SERVICE_ACCOUNT_ID=${{  secrets.GCLOUD_DEV_SERVICE_ACCOUNT_ID }}
                 export GCLOUD_PROJECT_ID=${{ secrets.GCLOUD_DEV_PROJECT_ID }}
                 bash scripts/gcloud-auth-login.sh
+
+            - name: Deploy to cloud run
+              run: |
+                export BUILD_NUMBER=${{github.run_number}}
+                export GCLOUD_DOCKER_REGISTRY_HOSTNAME=${{ secrets.GCLOUD_DOCKER_REPO_HOSTNAME }}
+                export GCLOUD_DOCKER_REPO_NAME=${{ secrets.GCLOUD_DOCKER_REPO_NAME }}
+                export GCLOUD_PROJECT_ID=${{ secrets.GCLOUD_INFRA_CICD_PROJECT_ID }}
+                export SERVICE_IMAGE_NAME=google-sheets
+                export TAG_NAME=1.0.$BUILD_NUMBER
+                export SERVICE_NAME=google-sheets
+                export SERVICE_ACCOUNT=${{ secrets.GCLOUD_DEV_APPLICATION_SERVICE_ACCOUNT }}
+                bash scripts/cloud-run-deploy.sh
+
+
