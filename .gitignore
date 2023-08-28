@@ -132,4 +132,4 @@ dist
 #credentials
 credentials/
 
-example.sh
+./example.sh
